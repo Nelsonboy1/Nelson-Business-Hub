@@ -1,71 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nelson Business Hub - Welcome</title>
+    <title>Nelson Business Hub - Affordable Data Plans</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1200x800/007bff/ffffff?text=Fast+Internet') no-repeat center center/cover;
+        }
+        /* Styles for the modal */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-container {
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-blue-600 via-blue-400 to-blue-200 min-h-screen flex flex-col">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Welcome Section -->
-    <section id="welcome-section" class="flex-1 flex flex-col justify-center items-center text-center px-4 py-12 text-white">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow">Welcome to Nelson Business Hub</h1>
-        <p class="text-xl md:text-2xl mb-8 max-w-xl mx-auto drop-shadow">Your trusted platform for affordable, instant data bundles and airtime top-ups.</p>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">NELSON BUSINESS HUB</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#mtn" class="text-gray-600 hover:text-blue-600 transition duration-300">MTN Plans</a>
+                <a href="#airteltigo" class="text-gray-600 hover:text-blue-600 transition duration-300">AirtelTigo Plans</a>
+                <a href="#offers" class="text-gray-600 hover:text-blue-600 transition duration-300">Special Offers</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#mtn" class="block py-2 text-gray-600 hover:text-blue-600">MTN Plans</a>
+            <a href="#airteltigo" class="block py-2 text-gray-600 hover:text-blue-600">AirtelTigo Plans</a>
+            <a href="#offers" class="block py-2 text-gray-600 hover:text-blue-600">Special Offers</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+        </div>
+    </header>
 
-        <div class="bg-white bg-opacity-90 rounded-xl shadow-lg p-6 mb-8 max-w-md w-full mx-auto text-gray-900">
-            <h2 class="text-2xl font-bold mb-2 text-blue-700">Contact & Support</h2>
-            <div class="mb-2">
-                <span class="font-semibold">WhatsApp/Phone:</span>
-                <a href="https://wa.me/233558690378" class="text-blue-700 underline ml-1" target="_blank">+233558690378 (Chat now)</a>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg text-white h-[60vh] flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Instant Data, Unbeatable Prices</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Your one-stop shop for affordable and reliable MTN and AirtelTigo data bundles.</p>
+                <a href="#plans" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    View Plans
+                </a>
             </div>
-            <div class="mb-2">
-                <span class="font-semibold">Email:</span>
-                <a href="mailto:manassehofosu55@gmail.com" class="text-blue-700 underline ml-1">manassehofosu55@gmail.com</a>
+        </section>
+
+        <!-- Plans Section Anchor -->
+        <div id="plans"></div>
+
+        <!-- MTN Data Plans -->
+        <section id="mtn" class="py-16 sm:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">MTN Data Plans</h2>
+                    <p class="text-gray-600 mt-2">Reliable and fast internet from MTN.</p>
+                </div>
+                <div id="mtn-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- MTN Plans will be injected here by JavaScript -->
+                </div>
             </div>
-            <div>
-                <span class="font-semibold">Paystack Shop:</span>
-                <a href="https://paystack.shop/pay/5unm4ileb0" class="text-blue-700 underline ml-1" target="_blank">paystack.shop/pay/5unm4ileb0</a>
+        </section>
+
+        <!-- AirtelTigo Data Plans -->
+        <section id="airteltigo" class="py-16 sm:py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">AirtelTigo Data Plans</h2>
+                    <p class="text-gray-600 mt-2">Great value bundles from AirtelTigo.</p>
+                </div>
+                <div id="airteltigo-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- AirtelTigo Plans will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers -->
+        <section id="offers" class="py-16 sm:py-20 bg-blue-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Special Offers</h2>
+                    <p class="text-gray-600 mt-2">Exclusive deals you don't want to miss!</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- Instant Delivery Offer -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center transform transition duration-500 hover:scale-105 border-t-4 border-yellow-400">
+                        <div class="mb-4">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">Instant Delivery</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">5GB Data + 80 Mins Talktime</h3>
+                        <p class="text-gray-500 mb-2">2 Days Validity</p>
+                        <p class="text-4xl font-extrabold text-blue-600 my-4">GHS 12</p>
+                        <button onclick="openModal('Special Offer: 5GB + 80 Mins')" class="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">NELSON BUSINESS HUB</h3>
+                    <p class="text-gray-400">Your trusted partner for affordable data bundles and digital services.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center justify-center md:justify-start">
+                            <i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-400"></i>
+                            <a href="tel:+233558690378" class="hover:text-blue-400">+233 55 869 0378</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                             <i data-lucide="mail" class="w-5 h-5 mr-3 text-blue-400"></i>
+                            <a href="mailto:manassehofosu55@gmail.com" class="hover:text-blue-400">manassehofosu55@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Secure Payment</h3>
+                    <p class="text-gray-400 mb-4">All payments are processed securely through Paystack.</p>
+                     <img src="https://assets.paystack.com/assets/img/logos/merchants/wordmark-white.png" alt="Paystack" class="h-8 mx-auto md:mx-0">
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+                <p>&copy; <span id="year"></span> Nelson Business Hub. All Rights Reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <button id="view-offers-btn" class="bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-300 transition mb-2 shadow-lg">View Data Offers</button>
-    </section>
-
-    <!-- Offers Modal (hidden by default) -->
-    <div id="offers-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
-        <div class="bg-white max-w-lg w-full rounded-xl shadow-2xl p-6 relative">
-            <button onclick="closeOffersModal()" class="absolute top-3 right-3 text-gray-400 hover:text-blue-600 text-2xl font-bold">&times;</button>
-            <h2 class="text-2xl font-bold mb-4 text-center text-blue-700">Buy Data Package</h2>
-            <form id="buy-form" class="space-y-4">
-                <div>
-                    <label for="network" class="block mb-1 font-semibold text-gray-700">Select Network</label>
-                    <select id="network" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-600">
-                        <option value="MTN">MTN</option>
-                        <option value="AirtelTigo">AirtelTigo</option>
-                    </select>
+    <!-- Phone Number Modal -->
+    <div id="phoneModal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100] hidden">
+        <div id="modalContainer" class="modal-container bg-white rounded-xl shadow-2xl w-full max-w-md transform scale-95">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">Complete Your Order</h2>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800">&times;</button>
                 </div>
-                <div>
-                    <label for="package" class="block mb-1 font-semibold text-gray-700">Select Package</label>
-                    <select id="package" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-600">
-                        <!-- Packages will be injected here -->
-                    </select>
-                </div>
-                <div>
-                    <label for="customer-phone" class="block mb-1 font-semibold text-gray-700">Your Phone Number</label>
-                    <input type="tel" id="customer-phone" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="e.g. 024XXXXXXX" required>
-                </div>
-                <div class="text-center">
-                    <a id="paystack-link" href="https://paystack.shop/pay/5unm4ileb0" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition inline-block">Pay Now via Paystack</a>
-                </div>
-            </form>
+                <p class="text-gray-600 mb-2">You have selected:</p>
+                <p id="selectedOffer" class="font-bold text-blue-600 text-lg mb-4"></p>
+                <form id="paymentForm">
+                    <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-1">Enter Phone Number</label>
+                    <p class="text-xs text-gray-500 mb-2">Please enter the number to receive the data bundle.</p>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., 0551234567" required>
+                    <p id="phoneError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid 10-digit phone number.</p>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 mt-6">
+                        Proceed to Pay
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <footer class="text-center py-4 text-gray-200 bg-blue-900 mt-auto">
-        &copy; <span id="year"></span> Nelson Business Hub. All rights reserved.
-    </footer>
+    <script>
+        // --- Data for Plans ---
+        const mtnPlans = [
+            { size: '1GB', price: '6' }, { size: '2GB', price: '12' },
+            { size: '3GB', price: '17' }, { size: '4GB', price: '22' },
+            { size: '5GB', price: '28' }, { size: '6GB', price: '32.5' },
+            { size: '7GB', price: '37.5' }, { size: '8GB', price: '43' },
+            { size: '10GB', price: '49' }, { size: '15GB', price: '74' },
+            { size: '20GB', price: '93.5' }, { size: '25GB', price: '120' },
+            { size: '30GB', price: '136' }, { size: '40GB', price: '175' },
+            { size: '50GB', price: '218' }, { size: '100GB', price: '410' }
+        ];
 
-    <script src="script.js"></script>
+        const airtelTigoPlans = [
+            { size: '1GB', price: '4.9' }, { size: '2GB', price: '9.5' },
+            { size: '3GB', price: '14' }, { size: '4GB', price: '19' },
+            { size: '5GB', price: '24' }, { size: '6GB', price: '27' },
+            { size: '7GB', price: '30' }, { size: '8GB', price: '35.5' },
+            { size: '10GB', price: '43.5' }, { size: '15GB', price: '63.5' },
+            { size: '20GB', price: '83.5' }, { size: '25GB', price: '100' },
+            { size: '30GB', price: '125' }, { size: '40GB', price: '170' },
+            { size: '50GB', price: '200' }, { size: '100GB', price: '300' },
+            { size: '200GB', price: '515' }
+        ];
+
+        const paymentUrl = 'https://paystack.shop/pay/5unm4ileb0';
+
+        // --- Function to Create Plan Cards ---
+        function createPlanCard(plan, network) {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-xl shadow-lg p-6 text-center transform transition duration-500 hover:scale-105 hover:shadow-2xl flex flex-col';
+            
+            let networkName = network === 'mtn' ? 'MTN' : 'AirtelTigo';
+            let borderColor = network === 'mtn' ? 'border-yellow-400' : 'border-blue-500';
+
+            card.innerHTML = `
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-800 border-b-2 ${borderColor} pb-2 mb-4">${plan.size}</h3>
+                    <p class="text-4xl font-extrabold text-gray-900 mb-1">GHS ${plan.price}</p>
+                    <p class="text-gray-500 mb-6">30-Day Validity</p>
+                </div>
+                <button onclick="openModal('${networkName} ${plan.size} - GHS ${plan.price}')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">
+                    Buy Now
+                </button>
+            `;
+            return card;
+        }
+
+        // --- Populate Grids ---
+        const mtnGrid = document.getElementById('mtn-plans-grid');
+        mtnPlans.forEach(plan => {
+            mtnGrid.appendChild(createPlanCard(plan, 'mtn'));
+        });
+
+        const airtelTigoGrid = document.getElementById('airteltigo-plans-grid');
+        airtelTigoPlans.forEach(plan => {
+            airtelTigoGrid.appendChild(createPlanCard(plan, 'airteltigo'));
+        });
+        
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Set current year in footer ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // --- Modal Logic ---
+        const phoneModal = document.getElementById('phoneModal');
+        const modalContainer = document.getElementById('modalContainer');
+        const selectedOfferEl = document.getElementById('selectedOffer');
+        const paymentForm = document.getElementById('paymentForm');
+        const phoneNumberInput = document.getElementById('phoneNumber');
+        const phoneError = document.getElementById('phoneError');
+
+        function openModal(offerDetails) {
+            selectedOfferEl.textContent = offerDetails;
+            phoneModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            setTimeout(() => {
+                phoneModal.classList.remove('opacity-0');
+                modalContainer.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            phoneModal.classList.add('opacity-0');
+            modalContainer.classList.add('scale-95');
+            setTimeout(() => {
+                phoneModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                paymentForm.reset(); // Clear the form
+                phoneError.classList.add('hidden');
+            }, 300);
+        }
+
+        paymentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const phoneNumber = phoneNumberInput.value;
+            // Basic validation for a 10-digit number
+            if (/^\d{10}$/.test(phoneNumber)) {
+                phoneError.classList.add('hidden');
+                console.log(`Phone Number: ${phoneNumber}, Offer: ${selectedOfferEl.textContent}`);
+                // Here you could potentially save the data before redirecting
+                window.open(paymentUrl, '_blank');
+                closeModal();
+            } else {
+                phoneError.classList.remove('hidden');
+            }
+        });
+
+        // Close modal if user clicks outside of it
+        phoneModal.addEventListener('click', function(event) {
+            if (event.target === phoneModal) {
+                closeModal();
+            }
+        });
+
+        // --- Lucide Icons ---
+        lucide.createIcons();
+    </script>
+
 </body>
 </html>
