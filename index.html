@@ -113,6 +113,11 @@
         function showOffers() {
             document.getElementById('welcome-page').classList.add('hidden');
             document.getElementById('offers-section').classList.remove('hidden');
+            // Ensure offers always populate on show
+            const networkSelect = document.getElementById('network-select');
+            if (networkSelect) {
+                populatePlansGrid(networkSelect.value);
+            }
         }
     </script>
     <script>
