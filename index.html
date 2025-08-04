@@ -52,27 +52,56 @@
             <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold text-blue-600">NELSON BUSINESS HUB</a>
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#mtn" class="text-gray-600 hover:text-blue-600 transition duration-300">MTN Plans</a>
-                    <a href="#airteltigo" class="text-gray-600 hover:text-blue-600 transition duration-300">AirtelTigo Plans</a>
-                    <a href="#offers" class="text-gray-600 hover:text-blue-600 transition duration-300">Special Offers</a>
-                    <a href="#features" class="text-gray-600 hover:text-blue-600 transition duration-300">Features</a>
-                    <a href="#faq" class="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</a>
-                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+                    <a href="#mtn" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">MTN Plans</a>
+                    <a href="#airteltigo" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">AirtelTigo Plans</a>
+                    <a href="#offers" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Special Offers</a>
+                    <a href="#features" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Features</a>
+                    <a href="#faq" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">FAQ</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
                 </div>
                 <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </nav>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
-                <a href="#mtn" class="block py-2 text-gray-600 hover:text-blue-600">MTN Plans</a>
-                <a href="#airteltigo" class="block py-2 text-gray-600 hover:text-blue-600">AirtelTigo Plans</a>
-                <a href="#offers" class="block py-2 text-gray-600 hover:text-blue-600">Special Offers</a>
-                <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600">Features</a>
-                <a href="#faq" class="block py-2 text-gray-600 hover:text-blue-600">FAQ</a>
-                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+            <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white shadow absolute w-full top-full left-0 z-40">
+                <a href="#mtn" class="nav-link block py-2 text-gray-600 hover:text-blue-600">MTN Plans</a>
+                <a href="#airteltigo" class="nav-link block py-2 text-gray-600 hover:text-blue-600">AirtelTigo Plans</a>
+                <a href="#offers" class="nav-link block py-2 text-gray-600 hover:text-blue-600">Special Offers</a>
+                <a href="#features" class="nav-link block py-2 text-gray-600 hover:text-blue-600">Features</a>
+                <a href="#faq" class="nav-link block py-2 text-gray-600 hover:text-blue-600">FAQ</a>
+                <a href="#contact" class="nav-link block py-2 text-gray-600 hover:text-blue-600">Contact</a>
             </div>
         </header>
+
+        <!-- PLANS SECTION ANCHOR -->
+        <div id="plans-anchor"></div>
+
+        <!-- MTN Data Plans -->
+        <section id="mtn" class="py-16 sm:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">MTN Data Plans</h2>
+                    <p class="text-gray-600 mt-2">Reliable and fast internet from MTN. <span class="font-semibold text-green-600">All plans are non-expiring!</span></p>
+                </div>
+                <div id="mtn-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- MTN Plans will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AirtelTigo Data Plans -->
+        <section id="airteltigo" class="py-16 sm:py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">AirtelTigo Data Plans</h2>
+                    <p class="text-gray-600 mt-2">Great value bundles from AirtelTigo. <span class="font-semibold text-green-600">All plans are non-expiring!</span></p>
+                </div>
+                <div id="airteltigo-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- AirtelTigo Plans will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
 
         <!-- Features Section -->
         <section id="features" class="py-16 sm:py-20 bg-white">
@@ -109,8 +138,61 @@
                 </div>
             </div>
         </section>
-        <!-- ... rest of content ... (Plans, Offers, FAQ, Footer etc) -->
-        <!-- For brevity, retain your original content structure for these sections -->
+
+        <!-- Special Offers -->
+        <section id="offers" class="py-16 sm:py-20 bg-blue-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Special Offers</h2>
+                    <p class="text-gray-600 mt-2">Exclusive deals you don't want to miss!</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- Special Offer -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center transform transition duration-500 hover:scale-105 border-t-4 border-yellow-400">
+                        <div class="mb-4">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">Instant Delivery</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">5GB Data + 80 Mins Talktime</h3>
+                        <p class="text-gray-500 mb-2 font-semibold text-red-600">2 Days Validity</p>
+                        <p class="text-4xl font-extrabold text-blue-600 my-4">GHS 12</p>
+                        <button onclick="openModal('Special Offer: 5GB + 80 Mins')" class="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 sm:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
+                    <p class="text-gray-600 mt-2">Find answers to common questions below.</p>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <div class="mb-6">
+                        <h3 class="font-bold text-blue-700 mb-1">Will my data ever expire?</h3>
+                        <p class="text-gray-700">No! All our packages are <span class="font-semibold text-green-600">non-expiring</span>. Use your data whenever you want.</p>
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="font-bold text-blue-700 mb-1">How fast is the data?</h3>
+                        <p class="text-gray-700">We partner with all major networks, so you enjoy the fastest available speeds.</p>
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="font-bold text-blue-700 mb-1">Can I transfer or gift data?</h3>
+                        <p class="text-gray-700">Yes, you can send data to friends or family from your dashboard.</p>
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="font-bold text-blue-700 mb-1">Is there support for bulk/corporate customers?</h3>
+                        <p class="text-gray-700">Absolutely! Contact us for special business rates and integrations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer and Modals ... (same as previous) -->
+        <!-- ... -->
     </div>
 
     <script>
@@ -118,7 +200,10 @@
         document.getElementById('enter-site').onclick = function() {
             document.getElementById('welcome-hero').style.display = 'none';
             document.getElementById('main-content').classList.remove('hidden');
-            window.scrollTo(0,0);
+            // Scroll to Plans section (MTN) after reveal
+            setTimeout(function() {
+                document.getElementById('mtn').scrollIntoView({behavior: "smooth"});
+            }, 100);
         };
 
         // Mobile menu toggle logic
@@ -128,9 +213,40 @@
             mobileMenu.classList.toggle('hidden');
         });
 
+        // Smooth scroll for all menu links (desktop & mobile)
+        function closeMobileMenu() {
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Attach event to all .nav-link
+        function setupNavLinks() {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Prevent default and smooth scroll to section
+                    const targetId = this.getAttribute('href').replace('#', '');
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({behavior: "smooth"});
+                        closeMobileMenu();
+                    }
+                });
+            });
+        }
+        setupNavLinks();
+
+        // For dynamic nav links (after mobile menu shows)
+        if (mobileMenu) {
+            new MutationObserver(setupNavLinks).observe(mobileMenu, {childList:true, subtree:true});
+        }
+
         // Lucide icons
         lucide.createIcons();
-    </script>
 
+        // Example plans grid population (copy from your original code if needed)
+        // ... Your plan population JS here ...
+    </script>
 </body>
 </html>
