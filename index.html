@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nelson Business Hub - Affordable Data Plans</title>
+    <meta name="description" content="Buy affordable and instant MTN & AirtelTigo data bundles at Nelson Business Hub. Fast delivery, secure payments, great value.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,14 +22,12 @@
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1200x800/007bff/ffffff?text=Fast+Internet') no-repeat center center/cover;
         }
-        /* Styles for the modal */
         .modal-overlay {
             transition: opacity 0.3s ease;
         }
         .modal-container {
             transition: transform 0.3s ease;
         }
-        /* Transition for showing/hiding content */
         .fade-in {
             animation: fadeIn 0.5s ease-in-out forwards;
         }
@@ -48,12 +47,21 @@
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Welcome Page -->
-    <div id="welcome-page" class="welcome-bg h-full flex flex-col items-center justify-center text-white p-6">
+    <div id="welcome-page" class="welcome-bg h-full flex flex-col items-center justify-center text-white p-6" role="region" aria-label="Welcome Section">
         <div class="text-center">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Welcome to</h1>
             <h2 class="text-5xl md:text-7xl font-bold text-yellow-300 mb-8">NELSON BUSINESS HUB</h2>
-            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto">Your Gateway to Affordable & Instant Data Bundles.</p>
-            <button id="enter-site-btn" class="bg-white text-blue-700 font-bold py-4 px-10 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-yellow-300">
+            <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Your Gateway to Affordable & Instant Data Bundles.</p>
+            
+            <div class="space-y-4 mb-12">
+                <h3 class="text-2xl font-semibold">Explore our Data Plans:</h3>
+                <ul class="text-lg flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-8" aria-label="Data Plan Types">
+                    <li class="flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5 mr-2 text-yellow-300" aria-hidden="true"></i>MTN Plans</li>
+                    <li class="flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5 mr-2 text-yellow-300" aria-hidden="true"></i>AirtelTigo Plans</li>
+                    <li class="flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5 mr-2 text-yellow-300" aria-hidden="true"></i>Special Offers</li>
+                </ul>
+            </div>
+            <button id="enter-site-btn" class="bg-white text-blue-700 font-bold py-4 px-10 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-yellow-300" aria-label="Explore Plans">
                 Explore Plans
             </button>
         </div>
@@ -71,7 +79,7 @@
                     <a href="#offers" class="text-gray-600 hover:text-blue-600 transition duration-300">Special Offers</a>
                     <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
                 </div>
-                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Open Mobile Menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </nav>
@@ -159,11 +167,11 @@
                         <h3 class="text-xl font-bold mb-4">Contact Us</h3>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-center justify-center md:justify-start">
-                                <i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-400"></i>
+                                <i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-400" aria-hidden="true"></i>
                                 <a href="tel:+233558690378" class="hover:text-blue-400">+233 55 869 0378</a>
                             </li>
                             <li class="flex items-center justify-center md:justify-start">
-                                 <i data-lucide="mail" class="w-5 h-5 mr-3 text-blue-400"></i>
+                                 <i data-lucide="mail" class="w-5 h-5 mr-3 text-blue-400" aria-hidden="true"></i>
                                 <a href="mailto:manassehofosu55@gmail.com" class="hover:text-blue-400">manassehofosu55@gmail.com</a>
                             </li>
                         </ul>
@@ -171,7 +179,7 @@
                     <div>
                         <h3 class="text-xl font-bold mb-4">Secure Payment</h3>
                         <p class="text-gray-400 mb-4">All payments are processed securely through Paystack.</p>
-                         <img src="https://assets.paystack.com/assets/img/logos/merchants/wordmark-white.png" alt="Paystack" class="h-8 mx-auto md:mx-0">
+                         <img src="https://assets.paystack.com/assets/img/logos/merchants/wordmark-white.png" alt="Paystack secure payment" class="h-8 mx-auto md:mx-0">
                     </div>
                 </div>
                 <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
@@ -182,12 +190,12 @@
     </div>
 
     <!-- Phone Number Modal -->
-    <div id="phoneModal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100] hidden">
+    <div id="phoneModal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100] hidden" aria-modal="true" role="dialog">
         <div id="modalContainer" class="modal-container bg-white rounded-xl shadow-2xl w-full max-w-md transform scale-95">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-gray-800">Complete Your Order</h2>
-                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800">&times;</button>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800" aria-label="Close modal">&times;</button>
                 </div>
                 <p class="text-gray-600 mb-2">You have selected:</p>
                 <p id="selectedOffer" class="font-bold text-blue-600 text-lg mb-4"></p>
@@ -218,6 +226,7 @@
                 mainContent.classList.remove('hidden');
                 mainContent.classList.add('fade-in');
                 document.body.style.overflow = 'auto'; // Allow scrolling on main content
+                lucide.createIcons(); // Re-render icons since new content is shown
             }, { once: true });
         });
         
@@ -324,7 +333,7 @@
             // Basic validation for a 10-digit number
             if (/^\d{10}$/.test(phoneNumber)) {
                 phoneError.classList.add('hidden');
-                console.log(`Phone Number: ${phoneNumber}, Offer: ${selectedOfferEl.textContent}`);
+                // Optionally pass phone to Paystack (if supported)
                 window.open(paymentUrl, '_blank');
                 closeModal();
             } else {
