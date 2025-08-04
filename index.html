@@ -27,9 +27,47 @@
         .hamburger.open {
             transform: rotate(90deg);
         }
+        /* Custom Brand Colors */
+        .mtn-bg {
+            background: linear-gradient(135deg, #FFE600 80%, #FFFBE5 100%);
+        }
+        .mtn-btn {
+            background-color: #ffe600;
+            color: #222;
+        }
+        .mtn-btn:hover {
+            background-color: #f7d800;
+            color: #000;
+        }
+        .airteltigo-bg {
+            background: linear-gradient(135deg, #0E4D92 60%, #E30613 100%);
+        }
+        .airteltigo-btn {
+            background: linear-gradient(90deg, #E30613 60%, #0E4D92 100%);
+            color: #fff;
+        }
+        .airteltigo-btn:hover {
+            background: linear-gradient(90deg, #0E4D92 60%, #E30613 100%);
+            color: #fff;
+        }
+        .mtn-border {
+            border-color: #ffe600 !important;
+        }
+        .airteltigo-border {
+            border-color: #0E4D92 !important;
+        }
+        .offers-border {
+            border-color: #ffb703 !important;
+        }
+        .special-gradient {
+            background: linear-gradient(90deg, #ffb703, #ffe600 50%, #ffb703 100%);
+        }
+        .smart-shadow {
+            box-shadow: 0 8px 32px 0 rgba(16,46,92,0.15);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gradient-to-b from-blue-50 via-white to-blue-100 text-gray-800">
 
     <!-- WELCOME HERO PAGE -->
     <section id="welcome-hero" class="hero-bg h-[100vh] flex flex-col items-center justify-center relative z-20 px-4">
@@ -39,19 +77,19 @@
                 Experience the best in affordable, reliable and <b>non-expiring</b> data bundles for MTN and AirtelTigo.
                 Instant delivery, secure payments, and exclusive offers for everyone!
             </p>
-            <button id="enter-site" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button id="enter-site" class="bg-gradient-to-r from-yellow-400 via-blue-600 to-red-500 hover:from-blue-600 hover:to-yellow-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                 Browse Data Plans
             </button>
             <div class="mt-12 flex flex-col md:flex-row gap-8 justify-center items-center">
-                <div class="bg-white/80 rounded-xl shadow p-6 max-w-xs w-full text-center">
+                <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 max-w-xs w-full text-center">
                     <h3 class="font-bold text-blue-700 text-xl mb-2">MTN & AirtelTigo</h3>
                     <p class="text-gray-700 text-base">All major networks supported. Nationwide coverage for all your needs.</p>
                 </div>
-                <div class="bg-white/80 rounded-xl shadow p-6 max-w-xs w-full text-center">
+                <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 max-w-xs w-full text-center">
                     <h3 class="font-bold text-blue-700 text-xl mb-2">Non-Expiring Data</h3>
                     <p class="text-gray-700 text-base">All regular bundles never expire. Enjoy true freedom and value.</p>
                 </div>
-                <div class="bg-white/80 rounded-xl shadow p-6 max-w-xs w-full text-center">
+                <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 max-w-xs w-full text-center">
                     <h3 class="font-bold text-blue-700 text-xl mb-2">Instant Delivery</h3>
                     <p class="text-gray-700 text-base">Get your data instantly, 24/7, after payment confirmation.</p>
                 </div>
@@ -63,28 +101,28 @@
     <div id="main-content" class="hidden">
 
         <!-- Header -->
-        <header class="bg-white shadow-md sticky top-0 z-50">
+        <header class="bg-gradient-to-r from-blue-50 via-white to-yellow-100 shadow-md sticky top-0 z-50">
             <nav class="container mx-auto px-6 py-4 flex justify-between items-center relative">
-                <a href="#" class="text-2xl font-bold text-blue-600">NELSON BUSINESS HUB</a>
+                <a href="#" class="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 via-blue-600 to-red-500 bg-clip-text text-transparent tracking-wider">NELSON BUSINESS HUB</a>
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#mtn" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">MTN Plans</a>
-                    <a href="#airteltigo" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">AirtelTigo Plans</a>
-                    <a href="#offers" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Special Offers</a>
-                    <a href="#features" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Features</a>
-                    <a href="#faq" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">FAQ</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+                    <a href="#mtn" class="nav-link text-gray-700 hover:text-yellow-500 font-semibold transition duration-300">MTN Plans</a>
+                    <a href="#airteltigo" class="nav-link text-gray-700 hover:text-blue-700 font-semibold transition duration-300">AirtelTigo Plans</a>
+                    <a href="#offers" class="nav-link text-gray-700 hover:text-orange-500 font-semibold transition duration-300">Special Offers</a>
+                    <a href="#features" class="nav-link text-gray-700 hover:text-blue-500 font-semibold transition duration-300">Features</a>
+                    <a href="#faq" class="nav-link text-gray-700 hover:text-green-600 font-semibold transition duration-300">FAQ</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 font-semibold transition duration-300">Contact</a>
                 </div>
                 <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6 hamburger"></i>
+                    <i data-lucide="menu" class="w-7 h-7 hamburger"></i>
                 </button>
                 <!-- Mobile Menu Animated Dropdown -->
                 <div id="mobile-menu" class="mobile-menu-animate origin-top absolute left-0 top-full w-full bg-white shadow hidden z-40">
-                    <a href="#mtn" class="nav-link block py-3 px-6 text-gray-700 hover:text-blue-600">MTN Plans</a>
-                    <a href="#airteltigo" class="nav-link block py-3 px-6 text-gray-700 hover:text-blue-600">AirtelTigo Plans</a>
-                    <a href="#offers" class="nav-link block py-3 px-6 text-gray-700 hover:text-blue-600">Special Offers</a>
-                    <a href="#features" class="nav-link block py-3 px-6 text-gray-700 hover:text-blue-600">Features</a>
-                    <a href="#faq" class="nav-link block py-3 px-6 text-gray-700 hover:text-blue-600">FAQ</a>
-                    <a href="#contact" class="nav-link block py-3 px-6 text-gray-700 hover:text-blue-600">Contact</a>
+                    <a href="#mtn" class="nav-link block py-3 px-6 text-gray-800 hover:text-yellow-500 font-bold">MTN Plans</a>
+                    <a href="#airteltigo" class="nav-link block py-3 px-6 text-gray-800 hover:text-blue-700 font-bold">AirtelTigo Plans</a>
+                    <a href="#offers" class="nav-link block py-3 px-6 text-gray-800 hover:text-orange-500 font-bold">Special Offers</a>
+                    <a href="#features" class="nav-link block py-3 px-6 text-gray-800 hover:text-blue-500 font-bold">Features</a>
+                    <a href="#faq" class="nav-link block py-3 px-6 text-gray-800 hover:text-green-600 font-bold">FAQ</a>
+                    <a href="#contact" class="nav-link block py-3 px-6 text-gray-800 hover:text-blue-600 font-bold">Contact</a>
                 </div>
             </nav>
         </header>
@@ -93,11 +131,11 @@
         <div id="plans-anchor"></div>
 
         <!-- MTN Data Plans -->
-        <section id="mtn" class="py-16 sm:py-20 bg-white">
+        <section id="mtn" class="py-16 sm:py-20 mtn-bg">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">MTN Data Plans</h2>
-                    <p class="text-gray-600 mt-2">Reliable and fast internet from MTN. <span class="font-semibold text-green-600">All plans are non-expiring!</span></p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 drop-shadow" style="letter-spacing:1px;">MTN Data Plans</h2>
+                    <p class="text-gray-700 font-semibold mt-2">Reliable and fast internet from <span class="font-extrabold text-yellow-500">MTN Ghana</span>. <span class="font-semibold text-green-700">All plans are non-expiring!</span></p>
                 </div>
                 <div id="mtn-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     <!-- MTN Plans will be injected here by JavaScript -->
@@ -106,11 +144,11 @@
         </section>
 
         <!-- AirtelTigo Data Plans -->
-        <section id="airteltigo" class="py-16 sm:py-20">
+        <section id="airteltigo" class="py-16 sm:py-20 airteltigo-bg">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">AirtelTigo Data Plans</h2>
-                    <p class="text-gray-600 mt-2">Great value bundles from AirtelTigo. <span class="font-semibold text-green-600">All plans are non-expiring!</span></p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white drop-shadow" style="letter-spacing:1px;">AirtelTigo Data Plans</h2>
+                    <p class="text-blue-100 font-semibold mt-2">Great value bundles from <span class="font-extrabold text-white">AirtelTigo</span>. <span class="font-semibold text-green-200">All plans are non-expiring!</span></p>
                 </div>
                 <div id="airteltigo-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     <!-- AirtelTigo Plans will be injected here by JavaScript -->
@@ -119,22 +157,22 @@
         </section>
 
         <!-- Special Offers -->
-        <section id="offers" class="py-16 sm:py-20 bg-blue-50">
+        <section id="offers" class="py-16 sm:py-20 special-gradient">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Special Offers</h2>
-                    <p class="text-gray-600 mt-2">Exclusive deals you don't want to miss!</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-orange-900 drop-shadow">Special Offers</h2>
+                    <p class="text-orange-700 mt-2 font-medium">Exclusive deals you don't want to miss!</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-8">
                     <!-- Special Offer -->
-                    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center transform transition duration-500 hover:scale-105 border-t-4 border-yellow-400">
+                    <div class="bg-white rounded-xl smart-shadow p-8 w-full max-w-md text-center transform transition duration-500 hover:scale-105 offers-border border-t-4">
                         <div class="mb-4">
                             <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">Instant Delivery</span>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900">5GB Data + 80 Mins Talktime</h3>
                         <p class="text-gray-500 mb-2 font-semibold text-red-600">2 Days Validity</p>
-                        <p class="text-4xl font-extrabold text-blue-600 my-4">GHS 12</p>
-                        <a href="https://paystack.shop/pay/ipueock1rx" target="_blank" rel="noopener" class="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 inline-block">
+                        <p class="text-4xl font-extrabold text-orange-600 my-4">GHS 12</p>
+                        <a href="https://paystack.shop/pay/ipueock1rx" target="_blank" rel="noopener" class="w-full bg-orange-400 hover:bg-yellow-400 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 inline-block">
                             Buy Now
                         </a>
                     </div>
@@ -143,36 +181,36 @@
         </section>
 
         <!-- Features Section -->
-        <section id="features" class="py-16 sm:py-20 bg-white">
+        <section id="features" class="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why Choose Us?</h2>
-                    <p class="text-gray-600 mt-2">We stand out as the most reliable and flexible data provider.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900">Why Choose Us?</h2>
+                    <p class="text-blue-700 mt-2 font-semibold">We stand out as the most reliable and flexible data provider.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    <div class="bg-blue-50 rounded-xl shadow p-6 text-center">
-                        <h3 class="font-bold text-xl text-blue-700 mb-2">Non-Expiring Data</h3>
-                        <p class="text-gray-600">Buy once, use anytime. Your data never expires, so you have total control.</p>
+                    <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 text-center">
+                        <h3 class="font-bold text-xl text-yellow-500 mb-2">Non-Expiring Data</h3>
+                        <p class="text-gray-700">Buy once, use anytime. Your data never expires, so you have total control.</p>
                     </div>
-                    <div class="bg-blue-50 rounded-xl shadow p-6 text-center">
-                        <h3 class="font-bold text-xl text-blue-700 mb-2">Instant Delivery</h3>
-                        <p class="text-gray-600">Top-up is instant, 24/7. Get your bundle immediately after payment.</p>
+                    <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 text-center">
+                        <h3 class="font-bold text-xl text-blue-600 mb-2">Instant Delivery</h3>
+                        <p class="text-gray-700">Top-up is instant, 24/7. Get your bundle immediately after payment.</p>
                     </div>
-                    <div class="bg-blue-50 rounded-xl shadow p-6 text-center">
-                        <h3 class="font-bold text-xl text-blue-700 mb-2">Affordable Packages</h3>
-                        <p class="text-gray-600">Data for every budget. Choose any volume, pay securely, and save more.</p>
+                    <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 text-center">
+                        <h3 class="font-bold text-xl text-red-500 mb-2">Affordable Packages</h3>
+                        <p class="text-gray-700">Data for every budget. Choose any volume, pay securely, and save more.</p>
                     </div>
-                    <div class="bg-blue-50 rounded-xl shadow p-6 text-center">
+                    <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 text-center">
                         <h3 class="font-bold text-xl text-blue-700 mb-2">Multiple Networks</h3>
-                        <p class="text-gray-600">MTN and AirtelTigo bundles available for all your devices.</p>
+                        <p class="text-gray-700">MTN and AirtelTigo bundles available for all your devices.</p>
                     </div>
-                    <div class="bg-blue-50 rounded-xl shadow p-6 text-center">
-                        <h3 class="font-bold text-xl text-blue-700 mb-2">Easy Gifting</h3>
-                        <p class="text-gray-600">Send data to friends or family instantly from your dashboard.</p>
+                    <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 text-center">
+                        <h3 class="font-bold text-xl text-yellow-600 mb-2">Easy Gifting</h3>
+                        <p class="text-gray-700">Send data to friends or family instantly from your dashboard.</p>
                     </div>
-                    <div class="bg-blue-50 rounded-xl shadow p-6 text-center">
-                        <h3 class="font-bold text-xl text-blue-700 mb-2">Secure Payment</h3>
-                        <p class="text-gray-600">Paystack-protected payments—your safety and privacy are assured.</p>
+                    <div class="bg-white/90 rounded-xl shadow smart-shadow p-6 text-center">
+                        <h3 class="font-bold text-xl text-blue-900 mb-2">Secure Payment</h3>
+                        <p class="text-gray-700">Paystack-protected payments—your safety and privacy are assured.</p>
                     </div>
                 </div>
             </div>
@@ -207,33 +245,33 @@
         </section>
 
         <!-- Contact & Footer -->
-        <footer id="contact" class="bg-gray-800 text-white">
+        <footer id="contact" class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white">
             <div class="container mx-auto px-6 py-12">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                     <div>
                         <h3 class="text-xl font-bold mb-4">NELSON BUSINESS HUB</h3>
-                        <p class="text-gray-400">Your trusted partner for affordable, non-expiring data bundles and digital services.</p>
+                        <p class="text-blue-100">Your trusted partner for affordable, non-expiring data bundles and digital services.</p>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                        <ul class="space-y-2 text-gray-300">
+                        <ul class="space-y-2 text-blue-100">
                             <li class="flex items-center justify-center md:justify-start">
-                                <i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-400"></i>
-                                <a href="tel:+233558690378" class="hover:text-blue-400">+233 55 869 0378</a>
+                                <i data-lucide="phone" class="w-5 h-5 mr-3 text-yellow-400"></i>
+                                <a href="tel:+233558690378" class="hover:text-yellow-400">+233 55 869 0378</a>
                             </li>
                             <li class="flex items-center justify-center md:justify-start">
-                                 <i data-lucide="mail" class="w-5 h-5 mr-3 text-blue-400"></i>
-                                <a href="mailto:manassehofosu55@gmail.com" class="hover:text-blue-400">manassehofosu55@gmail.com</a>
+                                 <i data-lucide="mail" class="w-5 h-5 mr-3 text-yellow-400"></i>
+                                <a href="mailto:manassehofosu55@gmail.com" class="hover:text-yellow-400">manassehofosu55@gmail.com</a>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold mb-4">Secure Payment</h3>
-                        <p class="text-gray-400 mb-4">All payments are processed securely through Paystack.</p>
+                        <p class="text-blue-100 mb-4">All payments are processed securely through Paystack.</p>
                          <img src="https://assets.paystack.com/assets/img/logos/merchants/wordmark-white.png" alt="Paystack" class="h-8 mx-auto md:mx-0">
                     </div>
                 </div>
-                <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+                <div class="border-t border-blue-700 mt-8 pt-6 text-center text-blue-200">
                     <p>&copy; <span id="year"></span> Nelson Business Hub. All Rights Reserved.</p>
                 </div>
             </div>
@@ -277,19 +315,35 @@
         const paymentUrl = 'https://paystack.shop/pay/ipueock1rx';
 
         function createPlanCard(plan, network) {
-            return `
-                <div class="bg-white rounded-xl shadow-lg p-6 text-center transform transition duration-500 hover:scale-105 hover:shadow-2xl flex flex-col">
+            if (network === "mtn") {
+                return `
+                <div class="bg-white rounded-xl smart-shadow mtn-border border-t-4 p-6 text-center flex flex-col hover:scale-105 transition duration-300">
                     <div class="flex-grow">
-                        <h3 class="text-2xl font-bold text-gray-800 border-b-2 ${network === 'mtn' ? 'border-yellow-400' : 'border-blue-500'} pb-2 mb-4">${plan.size}</h3>
-                        <p class="text-4xl font-extrabold text-gray-900 mb-1">GHS ${plan.price}</p>
-                        <p class="text-gray-500 mb-6 font-semibold text-green-600">Non-Expiry</p>
+                        <h3 class="text-2xl font-extrabold text-yellow-500 pb-2 mb-4">${plan.size}</h3>
+                        <p class="text-3xl font-extrabold text-gray-900 mb-1">GHS ${plan.price}</p>
+                        <p class="text-yellow-700 font-bold mb-6">Non-Expiry</p>
                     </div>
-                    <a href="${paymentUrl}" target="_blank" rel="noopener" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 inline-block">
+                    <a href="${paymentUrl}" target="_blank" rel="noopener" class="mtn-btn hover:mtn-btn w-full py-3 px-6 rounded-lg text-lg font-extrabold shadow transition duration-300 inline-block">
                         Buy Now
                     </a>
                 </div>
-            `;
+                `;
+            } else {
+                return `
+                <div class="bg-white rounded-xl smart-shadow airteltigo-border border-t-4 p-6 text-center flex flex-col hover:scale-105 transition duration-300">
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-extrabold text-blue-700 pb-2 mb-4">${plan.size}</h3>
+                        <p class="text-3xl font-extrabold text-gray-900 mb-1">GHS ${plan.price}</p>
+                        <p class="text-blue-700 font-bold mb-6">Non-Expiry</p>
+                    </div>
+                    <a href="${paymentUrl}" target="_blank" rel="noopener" class="airteltigo-btn w-full py-3 px-6 rounded-lg text-lg font-extrabold shadow transition duration-300 inline-block">
+                        Buy Now
+                    </a>
+                </div>
+                `;
+            }
         }
+
         // Populate MTN plans
         document.getElementById('mtn-plans-grid').innerHTML = mtnPlans.map(plan => createPlanCard(plan, 'mtn')).join('');
         // Populate AirtelTigo plans
