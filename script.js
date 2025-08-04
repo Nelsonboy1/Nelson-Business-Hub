@@ -1,4 +1,4 @@
-// Sample data for both networks
+// Data for both networks
 const mtnPlans = [
     { size: '5GB', price: 24 }, { size: '6GB', price: 27 },
     { size: '7GB', price: 30 }, { size: '8GB', price: 35.5 },
@@ -48,16 +48,14 @@ function populatePlansGrid(network) {
     });
 }
 
-// Initial population (default to MTN)
+// Setup event listeners
 document.addEventListener('DOMContentLoaded', function() {
     const networkSelect = document.getElementById('network-select');
     if (networkSelect) {
-        populatePlansGrid(networkSelect.value);
         networkSelect.addEventListener('change', function() {
             populatePlansGrid(this.value);
         });
     }
-    // Modal and year logic
     document.getElementById('year').textContent = new Date().getFullYear();
     lucide.createIcons();
 });
