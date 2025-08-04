@@ -1,127 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nelson Business Hub - Affordable Data Plans</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body, html {
-            font-family: 'Inter', sans-serif;
-            height: 100%;
-            margin: 0;
-        }
-        .welcome-bg {
-            background: linear-gradient(rgba(29, 78, 216, 0.8), rgba(29, 78, 216, 0.9)), url('https://placehold.co/1200x800/007bff/ffffff?text=Connectivity') no-repeat center center/cover;
-        }
-        .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1200x800/007bff/ffffff?text=Fast+Internet') no-repeat center center/cover;
-        }
-        .modal-overlay {
-            transition: opacity 0.3s ease;
-        }
-        .modal-container {
-            transition: transform 0.3s ease;
-        }
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out forwards;
-        }
-        .fade-out {
-            animation: fadeOut 0.5s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">NELSON BUSINESS HUB</div>
+        </div>
+    </header>
 
-    <div id="welcome-page" class="welcome-bg h-full flex flex-col items-center justify-center text-white p-6">
-        <div class="text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Welcome to</h1>
-            <h2 class="text-5xl md:text-7xl font-bold text-yellow-300 mb-8">NELSON BUSINESS HUB</h2>
-            <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Your Gateway to Affordable & Instant Data Bundles.</p>
-            <div class="space-y-4 mb-12">
-                <h3 class="text-2xl font-semibold">Explore our Data Plans:</h3>
-                <button onclick="showOffers()" class="bg-yellow-400 text-blue-900 font-bold py-2 px-6 rounded-lg text-lg hover:bg-yellow-300 transition">View Offers</button>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Tab Navigation -->
+        <div class="mb-6 flex gap-2" id="data-tabs">
+            <button class="tab-btn active bg-blue-600 text-white px-4 py-2 rounded" data-network="mtn">MTN</button>
+            <button class="tab-btn bg-white text-blue-600 px-4 py-2 rounded border border-blue-600" data-network="airteltigo">AirtelTigo</button>
+        </div>
+
+        <!-- Offers Table -->
+        <div id="offers-content">
+            <!-- Plans Table will be injected here -->
+        </div>
+
+        <!-- Special Offers -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold mb-4 text-center">Special Offers</h2>
+            <div class="bg-yellow-100 border-l-4 border-yellow-400 p-6 rounded shadow text-center" id="special-offer-card">
+                <!-- Special offer details injected here -->
             </div>
         </div>
-    </div>
+    </main>
 
-    <div id="offers-section" class="hidden min-h-screen flex flex-col">
-        <header>
-            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-blue-600">NELSON BUSINESS HUB</a>
-            </nav>
-        </header>
-
-        <main class="flex-grow">
-            <section class="hero-bg text-white h-[30vh] flex items-center justify-center">
-                <div class="text-center">
-                    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">All Offers</h1>
-                    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Select your network and view available data packages.</p>
-                </div>
-            </section>
-
-            <section class="py-8">
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-col items-center mb-8">
-                        <label for="network-select" class="mb-2 text-lg font-semibold text-gray-700">Choose Network:</label>
-                        <select id="network-select" class="px-4 py-2 rounded border border-gray-300 focus:border-blue-600 focus:outline-none">
-                            <option value="mtn">MTN</option>
-                            <option value="airteltigo">AirtelTigo</option>
-                        </select>
-                    </div>
-                    <div id="plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                        <!-- Plans will be injected here -->
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Modal and scripts remain as before -->
-    <div id="phoneModal" class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-40 hidden">
-        <div id="modalContainer" class="bg-white rounded-xl shadow-2xl w-11/12 max-w-md p-8 relative fade-in">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 focus:outline-none"><i data-lucide="x" class="w-6 h-6"></i></button>
-            <h2 class="text-2xl font-bold mb-4">Buy Data Plan</h2>
-            <p id="selectedOffer" class="mb-2 text-gray-700 font-semibold"></p>
-            <form id="paymentForm" class="space-y-4">
-                <div>
-                    <label for="phoneNumber" class="block text-gray-700 mb-1">Phone Number</label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-600" required>
-                    <span id="phoneError" class="text-red-500 text-sm hidden">Please enter a valid phone number.</span>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">Pay Now</button>
-            </form>
-        </div>
-    </div>
-    <footer class="text-center py-6 text-gray-500 bg-gray-100">
+    <footer class="text-center py-6 text-gray-500 bg-white border-t">
         &copy; <span id="year"></span> Nelson Business Hub. All rights reserved.
     </footer>
     <script src="script.js"></script>
-    <script>
-        function showOffers() {
-            document.getElementById('welcome-page').classList.add('hidden');
-            document.getElementById('offers-section').classList.remove('hidden');
-            // Ensure offers always populate on show
-            const networkSelect = document.getElementById('network-select');
-            if (networkSelect) {
-                populatePlansGrid(networkSelect.value);
-            }
-        }
-    </script>
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 </html>
