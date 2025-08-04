@@ -10,8 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body {
+        body, html {
             font-family: 'Inter', sans-serif;
+            height: 100%;
+            margin: 0;
+        }
+        .welcome-bg {
+            background: linear-gradient(rgba(29, 78, 216, 0.8), rgba(29, 78, 216, 0.9)), url('https://placehold.co/1200x800/007bff/ffffff?text=Connectivity') no-repeat center center/cover;
         }
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1200x800/007bff/ffffff?text=Fast+Internet') no-repeat center center/cover;
@@ -23,131 +28,158 @@
         .modal-container {
             transition: transform 0.3s ease;
         }
+        /* Transition for showing/hiding content */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">NELSON BUSINESS HUB</a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#mtn" class="text-gray-600 hover:text-blue-600 transition duration-300">MTN Plans</a>
-                <a href="#airteltigo" class="text-gray-600 hover:text-blue-600 transition duration-300">AirtelTigo Plans</a>
-                <a href="#offers" class="text-gray-600 hover:text-blue-600 transition duration-300">Special Offers</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="welcome-bg h-full flex flex-col items-center justify-center text-white p-6">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Welcome to</h1>
+            <h2 class="text-5xl md:text-7xl font-bold text-yellow-300 mb-8">NELSON BUSINESS HUB</h2>
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto">Your Gateway to Affordable & Instant Data Bundles.</p>
+            <button id="enter-site-btn" class="bg-white text-blue-700 font-bold py-4 px-10 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-yellow-300">
+                Explore Plans
             </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
-            <a href="#mtn" class="block py-2 text-gray-600 hover:text-blue-600">MTN Plans</a>
-            <a href="#airteltigo" class="block py-2 text-gray-600 hover:text-blue-600">AirtelTigo Plans</a>
-            <a href="#offers" class="block py-2 text-gray-600 hover:text-blue-600">Special Offers</a>
-            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
         </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-bg text-white h-[60vh] flex items-center justify-center">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Instant Data, Unbeatable Prices</h1>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Your one-stop shop for affordable and reliable MTN and AirtelTigo data bundles.</p>
-                <a href="#plans" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
-                    View Plans
-                </a>
+    </div>
+    
+    <!-- Main Content (Initially Hidden) -->
+    <div id="main-content" class="hidden">
+        <!-- Header -->
+        <header class="bg-white shadow-md sticky top-0 z-50">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-blue-600">NELSON BUSINESS HUB</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#mtn" class="text-gray-600 hover:text-blue-600 transition duration-300">MTN Plans</a>
+                    <a href="#airteltigo" class="text-gray-600 hover:text-blue-600 transition duration-300">AirtelTigo Plans</a>
+                    <a href="#offers" class="text-gray-600 hover:text-blue-600 transition duration-300">Special Offers</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+                <a href="#mtn" class="block py-2 text-gray-600 hover:text-blue-600">MTN Plans</a>
+                <a href="#airteltigo" class="block py-2 text-gray-600 hover:text-blue-600">AirtelTigo Plans</a>
+                <a href="#offers" class="block py-2 text-gray-600 hover:text-blue-600">Special Offers</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
             </div>
-        </section>
+        </header>
 
-        <!-- Plans Section Anchor -->
-        <div id="plans"></div>
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-bg text-white h-[50vh] flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Instant Data, Unbeatable Prices</h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Your one-stop shop for affordable and reliable MTN and AirtelTigo data bundles.</p>
+                </div>
+            </section>
 
-        <!-- MTN Data Plans -->
-        <section id="mtn" class="py-16 sm:py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">MTN Data Plans</h2>
-                    <p class="text-gray-600 mt-2">Reliable and fast internet from MTN.</p>
-                </div>
-                <div id="mtn-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <!-- MTN Plans will be injected here by JavaScript -->
-                </div>
-            </div>
-        </section>
+            <!-- Plans Section Anchor -->
+            <div id="plans"></div>
 
-        <!-- AirtelTigo Data Plans -->
-        <section id="airteltigo" class="py-16 sm:py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">AirtelTigo Data Plans</h2>
-                    <p class="text-gray-600 mt-2">Great value bundles from AirtelTigo.</p>
-                </div>
-                <div id="airteltigo-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <!-- AirtelTigo Plans will be injected here by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Special Offers -->
-        <section id="offers" class="py-16 sm:py-20 bg-blue-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Special Offers</h2>
-                    <p class="text-gray-600 mt-2">Exclusive deals you don't want to miss!</p>
-                </div>
-                <div class="flex flex-wrap justify-center gap-8">
-                    <!-- Instant Delivery Offer -->
-                    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center transform transition duration-500 hover:scale-105 border-t-4 border-yellow-400">
-                        <div class="mb-4">
-                            <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">Instant Delivery</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900">5GB Data + 80 Mins Talktime</h3>
-                        <p class="text-gray-500 mb-2">2 Days Validity</p>
-                        <p class="text-4xl font-extrabold text-blue-600 my-4">GHS 12</p>
-                        <button onclick="openModal('Special Offer: 5GB + 80 Mins')" class="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">
-                            Buy Now
-                        </button>
+            <!-- MTN Data Plans -->
+            <section id="mtn" class="py-16 sm:py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">MTN Data Plans</h2>
+                        <p class="text-gray-600 mt-2">Reliable and fast internet from MTN.</p>
+                    </div>
+                    <div id="mtn-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        <!-- MTN Plans will be injected here by JavaScript -->
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <!-- Contact & Footer -->
-    <footer id="contact" class="bg-gray-800 text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">NELSON BUSINESS HUB</h3>
-                    <p class="text-gray-400">Your trusted partner for affordable data bundles and digital services.</p>
+            <!-- AirtelTigo Data Plans -->
+            <section id="airteltigo" class="py-16 sm:py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">AirtelTigo Data Plans</h2>
+                        <p class="text-gray-600 mt-2">Great value bundles from AirtelTigo.</p>
+                    </div>
+                    <div id="airteltigo-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        <!-- AirtelTigo Plans will be injected here by JavaScript -->
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center justify-center md:justify-start">
-                            <i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-400"></i>
-                            <a href="tel:+233558690378" class="hover:text-blue-400">+233 55 869 0378</a>
-                        </li>
-                        <li class="flex items-center justify-center md:justify-start">
-                             <i data-lucide="mail" class="w-5 h-5 mr-3 text-blue-400"></i>
-                            <a href="mailto:manassehofosu55@gmail.com" class="hover:text-blue-400">manassehofosu55@gmail.com</a>
-                        </li>
-                    </ul>
+            </section>
+
+            <!-- Special Offers -->
+            <section id="offers" class="py-16 sm:py-20 bg-blue-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Special Offers</h2>
+                        <p class="text-gray-600 mt-2">Exclusive deals you don't want to miss!</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <!-- Instant Delivery Offer -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center transform transition duration-500 hover:scale-105 border-t-4 border-yellow-400">
+                            <div class="mb-4">
+                                <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">Instant Delivery</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">5GB Data + 80 Mins Talktime</h3>
+                            <p class="text-gray-500 mb-2">2 Days Validity</p>
+                            <p class="text-4xl font-extrabold text-blue-600 my-4">GHS 12</p>
+                            <button onclick="openModal('Special Offer: 5GB + 80 Mins')" class="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Secure Payment</h3>
-                    <p class="text-gray-400 mb-4">All payments are processed securely through Paystack.</p>
-                     <img src="https://assets.paystack.com/assets/img/logos/merchants/wordmark-white.png" alt="Paystack" class="h-8 mx-auto md:mx-0">
+            </section>
+        </main>
+
+        <!-- Contact & Footer -->
+        <footer id="contact" class="bg-gray-800 text-white">
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">NELSON BUSINESS HUB</h3>
+                        <p class="text-gray-400">Your trusted partner for affordable data bundles and digital services.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center justify-center md:justify-start">
+                                <i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-400"></i>
+                                <a href="tel:+233558690378" class="hover:text-blue-400">+233 55 869 0378</a>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start">
+                                 <i data-lucide="mail" class="w-5 h-5 mr-3 text-blue-400"></i>
+                                <a href="mailto:manassehofosu55@gmail.com" class="hover:text-blue-400">manassehofosu55@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Secure Payment</h3>
+                        <p class="text-gray-400 mb-4">All payments are processed securely through Paystack.</p>
+                         <img src="https://assets.paystack.com/assets/img/logos/merchants/wordmark-white.png" alt="Paystack" class="h-8 mx-auto md:mx-0">
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+                    <p>&copy; <span id="year"></span> Nelson Business Hub. All Rights Reserved.</p>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
-                <p>&copy; <span id="year"></span> Nelson Business Hub. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- Phone Number Modal -->
     <div id="phoneModal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100] hidden">
@@ -173,6 +205,22 @@
     </div>
 
     <script>
+        // --- Site Entry Logic ---
+        const welcomePage = document.getElementById('welcome-page');
+        const mainContent = document.getElementById('main-content');
+        const enterSiteBtn = document.getElementById('enter-site-btn');
+
+        enterSiteBtn.addEventListener('click', () => {
+            welcomePage.classList.add('fade-out');
+            
+            welcomePage.addEventListener('animationend', () => {
+                welcomePage.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('fade-in');
+                document.body.style.overflow = 'auto'; // Allow scrolling on main content
+            }, { once: true });
+        });
+        
         // --- Data for Plans ---
         const mtnPlans = [
             { size: '1GB', price: '6' }, { size: '2GB', price: '12' },
@@ -277,7 +325,6 @@
             if (/^\d{10}$/.test(phoneNumber)) {
                 phoneError.classList.add('hidden');
                 console.log(`Phone Number: ${phoneNumber}, Offer: ${selectedOfferEl.textContent}`);
-                // Here you could potentially save the data before redirecting
                 window.open(paymentUrl, '_blank');
                 closeModal();
             } else {
@@ -298,4 +345,3 @@
 
 </body>
 </html>
-
