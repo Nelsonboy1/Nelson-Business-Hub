@@ -31,14 +31,6 @@
             background: rgba(255,255,255,0.85);
             box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
         }
-        .home-btn {
-            background: linear-gradient(90deg,#ffe600 0%, #0096d6 100%);
-            color: #232323;
-        }
-        .home-btn:hover {
-            background: linear-gradient(90deg,#0096d6 0%, #ffe600 100%);
-            color: #fff;
-        }
         .brand-gradient-header {
             background: linear-gradient(90deg,#ffe600 0%, #48952d 17%, #0096d6 45%, #2c3e94 70%, #8e44ad 100%);
             -webkit-background-clip: text;
@@ -60,22 +52,67 @@
         .hamburger.open {
             transform: rotate(90deg);
         }
-        /* Plan card brand backgrounds */
-        .mtn-bg { background: #ffe600; }
-        .airteltigo-bg { background: linear-gradient(90deg,#0E4D92 70%,#E30613 100%); }
-        .mtn-border { border-color: #ffe600 !important; }
-        .airteltigo-border { border-color: #0E4D92 !important; }
-        .offers-border { border-color: #ffb703 !important; }
-        .special-gradient { background: linear-gradient(90deg, #ffb703, #ffe600 50%, #ffb703 100%); }
-        .pay-btn { background: #34a853; }
-        .pay-btn:hover { background: #27823e; }
-        .top-bar { background: #6a89dd; }
-        .back-btn { border: 2px solid #d1d5db; }
-        .back-btn:hover { background: #f3f4f6; }
-        .rounded-card { border-radius: 18px; }
-        .smart-shadow { box-shadow: 0 8px 32px 0 rgba(16,46,92,0.15); }
-        /* Responsive modal background */
-        #confirmation-modal { z-index: 110; }
+        .tab-btn {
+            transition: background 0.2s, color 0.2s;
+            font-weight: 700;
+        }
+        .tab-btn-active-mtn {
+            background: #ffe600;
+            color: #232323;
+        }
+        .tab-btn-active-airteltigo {
+            background: #0E4D92;
+            color: #fff;
+        }
+        .tab-btn-active-special {
+            background: #ffb703;
+            color: #232323;
+        }
+        .tab-btn-inactive {
+            background: #f4f4f4;
+            color: #232323;
+        }
+        .plan-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 14px 0 rgba(0,0,0,0.06);
+            padding: 1.5rem 1.25rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .plan-card:hover {
+            box-shadow: 0 6px 32px 0 rgba(0,0,0,0.15);
+            transform: translateY(-4px) scale(1.02);
+        }
+        .buy-mtn {
+            background: #ffe600;
+            color: #202020;
+        }
+        .buy-mtn:hover {
+            background: #fff200;
+            color: #000;
+            border: 1.5px solid #ffe600;
+        }
+        .buy-airteltigo {
+            background: #0E4D92;
+            color: #fff;
+        }
+        .buy-airteltigo:hover {
+            background: #E30613;
+            color: #fff;
+        }
+        .buy-special {
+            background: #ffb703;
+            color: #222;
+        }
+        .buy-special:hover {
+            background: #f59e00;
+            color: #fff;
+        }
+        .delivered-shortly {
+            color: #7b7b7b;
+            font-weight: 500;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-b from-blue-50 via-white to-blue-100 text-gray-800">
@@ -127,37 +164,61 @@
 <!-- MAIN CONTENT (hidden on load) -->
 <div id="main-content" class="hidden">
 
-    <!-- Header -->
+    <!-- Header (Home button removed as per instruction) -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center relative">
-            <button id="home-btn" class="home-btn font-bold rounded-full px-4 py-2 shadow-sm transition mr-2 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 -ml-1" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M10 3L3 9.5V17a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1V9.5L10 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Home
-            </button>
             <a href="#" class="text-xl font-extrabold brand-gradient-header tracking-wider uppercase">NELSON BUSINESS HUB</a>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                 <i data-lucide="menu" class="w-7 h-7 hamburger"></i>
             </button>
             <div class="hidden md:flex space-x-5 items-center">
-                <a href="#mtn" class="nav-link font-semibold text-gray-800 hover:text-yellow-500 transition">MTN Plans</a>
-                <a href="#airteltigo" class="nav-link font-semibold text-gray-800 hover:text-blue-700 transition">AirtelTigo Plans</a>
-                <a href="#offers" class="nav-link font-semibold text-gray-800 hover:text-orange-500 transition">Special Offers</a>
+                <a href="#plans" class="nav-link font-semibold text-gray-800 hover:text-yellow-500 transition">MTN Plans</a>
+                <a href="#plans" class="nav-link font-semibold text-gray-800 hover:text-blue-700 transition">AirtelTigo Plans</a>
+                <a href="#plans" class="nav-link font-semibold text-gray-800 hover:text-orange-500 transition">Special Offers</a>
                 <a href="#features" class="nav-link font-semibold text-gray-800 hover:text-blue-500 transition">Features</a>
                 <a href="#faq" class="nav-link font-semibold text-gray-800 hover:text-green-600 transition">FAQ</a>
                 <a href="#contact" class="nav-link font-semibold text-gray-800 hover:text-blue-600 transition">Contact</a>
             </div>
-            <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu-animate origin-top absolute left-0 top-full w-full bg-white shadow hidden z-40">
-                <a href="#mtn" class="nav-link block py-3 px-7 text-gray-800 hover:text-yellow-500 font-bold">MTN Plans</a>
-                <a href="#airteltigo" class="nav-link block py-3 px-7 text-gray-800 hover:text-blue-700 font-bold">AirtelTigo Plans</a>
-                <a href="#offers" class="nav-link block py-3 px-7 text-gray-800 hover:text-orange-500 font-bold">Special Offers</a>
+                <a href="#plans" class="nav-link block py-3 px-7 text-gray-800 hover:text-yellow-500 font-bold">MTN Plans</a>
+                <a href="#plans" class="nav-link block py-3 px-7 text-gray-800 hover:text-blue-700 font-bold">AirtelTigo Plans</a>
+                <a href="#plans" class="nav-link block py-3 px-7 text-gray-800 hover:text-orange-500 font-bold">Special Offers</a>
                 <a href="#features" class="nav-link block py-3 px-7 text-gray-800 hover:text-blue-500 font-bold">Features</a>
                 <a href="#faq" class="nav-link block py-3 px-7 text-gray-800 hover:text-green-600 font-bold">FAQ</a>
                 <a href="#contact" class="nav-link block py-3 px-7 text-gray-800 hover:text-blue-600 font-bold">Contact</a>
-                <a href="#" id="mobile-home-btn" class="block py-3 px-7 text-gray-800 hover:text-yellow-600 font-bold border-t mt-2">Home</a>
             </div>
         </nav>
     </header>
+
+    <!-- PLANS & OFFERS HORIZONTAL TABS -->
+    <section id="plans" class="py-8 bg-white">
+        <div class="container mx-auto px-3">
+            <!-- Horizontal Tabs -->
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-xl bg-[#f4f4f4] shadow-sm overflow-hidden">
+                    <button id="tab-mtn" class="tab-btn tab-btn-active-mtn px-5 py-2 text-base" data-tab="mtn">MTN</button>
+                    <button id="tab-airteltigo" class="tab-btn tab-btn-inactive px-5 py-2 text-base" data-tab="airteltigo">AirtelTigo</button>
+                    <button id="tab-special" class="tab-btn tab-btn-inactive px-5 py-2 text-base" data-tab="special">Special Offer</button>
+                </div>
+            </div>
+            <!-- Tab Panels -->
+            <div id="panel-mtn" class="tab-panel">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
+                    <!-- MTN Plans will be injected here by JS -->
+                </div>
+            </div>
+            <div id="panel-airteltigo" class="tab-panel hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
+                    <!-- AirtelTigo Plans will be injected here by JS -->
+                </div>
+            </div>
+            <div id="panel-special" class="tab-panel hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
+                    <!-- Special Offer injected here -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Confirmation Modal -->
     <div id="confirmation-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-[110] hidden">
@@ -193,55 +254,6 @@
             </div>
         </div>
     </div>
-
-    <!-- MTN Data Plans -->
-    <section id="mtn" class="py-14 mtn-bg">
-        <div class="container mx-auto px-3">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 drop-shadow" style="letter-spacing:1px;">MTN Data Plans</h2>
-                <p class="text-gray-700 font-semibold mt-2">Reliable and fast internet from <span class="font-extrabold text-yellow-500">MTN Ghana</span>. <span class="font-semibold text-green-700">All plans are non-expiring!</span></p>
-            </div>
-            <div id="mtn-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7">
-                <!-- MTN Plans will be injected here by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- AirtelTigo Data Plans -->
-    <section id="airteltigo" class="py-14 airteltigo-bg">
-        <div class="container mx-auto px-3">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-white drop-shadow" style="letter-spacing:1px;">AirtelTigo Data Plans</h2>
-                <p class="text-blue-100 font-semibold mt-2">Great value bundles from <span class="font-extrabold text-white">AirtelTigo</span>. <span class="font-semibold text-green-200">All plans are non-expiring!</span></p>
-            </div>
-            <div id="airteltigo-plans-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7">
-                <!-- AirtelTigo Plans will be injected here by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Special Offers -->
-    <section id="offers" class="py-14 special-gradient">
-        <div class="container mx-auto px-3">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-orange-900 drop-shadow">Special Offers</h2>
-                <p class="text-orange-700 mt-2 font-medium">Exclusive deals you don't want to miss!</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-8">
-                <!-- Special Offer -->
-                <div class="bg-white rounded-xl smart-shadow p-8 w-full max-w-md text-center transform transition duration-500 hover:scale-105 offers-border border-t-4">
-                    <div class="mb-4">
-                        <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">Instant Delivery</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900">5GB Data + 80 Mins Talktime</h3>
-                    <p class="text-gray-500 mb-2 font-semibold text-red-600">2 Days Validity</p>
-                    <p class="text-4xl font-extrabold text-orange-600 my-4">GHS 12</p>
-                    <button class="w-full bg-orange-400 hover:bg-yellow-400 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 inline-block special-buy-btn"
-                        data-network="Special Offer" data-size="5GB+80Mins" data-price="12">Buy Now</button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Features Section -->
     <section id="features" class="py-14 bg-gradient-to-br from-blue-50 via-white to-blue-100">
@@ -306,7 +318,6 @@
             </div>
         </div>
     </section>
-
     <!-- Contact & Footer -->
     <footer id="contact" class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white">
         <div class="container mx-auto px-6 py-12">
@@ -349,20 +360,6 @@
         window.scrollTo(0,0);
     };
 
-    // Home button functionality
-    document.getElementById('home-btn').onclick = function() {
-        document.getElementById('main-content').classList.add('hidden');
-        document.getElementById('welcome-hero').style.display = 'flex';
-        window.scrollTo(0,0);
-    };
-    document.getElementById('mobile-home-btn').onclick = function(e) {
-        e.preventDefault();
-        document.getElementById('main-content').classList.add('hidden');
-        document.getElementById('welcome-hero').style.display = 'flex';
-        document.getElementById('mobile-menu').classList.add('hidden');
-        window.scrollTo(0,0);
-    };
-
     // Data for Plans
     const mtnPlans = [
         { size: '1GB', price: '6' }, { size: '2GB', price: '12' },
@@ -387,40 +384,118 @@
         { size: '200GB', price: '515' }
     ];
 
+    const specialOffers = [
+        { size: '5GB + 80 Mins', price: '12', note: '2 Days validity' }
+    ];
+
     const paymentUrl = 'https://paystack.shop/pay/ipueock1rx';
 
-    function createPlanCard(plan, network) {
-        if (network === "mtn") {
-            return `
-            <div class="rounded-xl smart-shadow mtn-border border-t-4 p-6 text-center flex flex-col hover:scale-105 transition duration-300 bg-white">
-                <div class="flex-grow">
-                    <h3 class="text-2xl font-extrabold text-yellow-500 pb-2 mb-4">${plan.size}</h3>
-                    <p class="text-3xl font-extrabold text-gray-900 mb-1">GHS ${plan.price}</p>
-                    <p class="text-yellow-700 font-bold mb-6">Non-Expiry</p>
-                </div>
-                <button class="mtn-btn hover:mtn-btn w-full py-3 px-6 rounded-lg text-lg font-extrabold shadow transition duration-300 plan-buy-btn"
-                    data-network="MTN" data-size="${plan.size}" data-price="${plan.price}">Buy Now</button>
-            </div>
-            `;
-        } else {
-            return `
-            <div class="rounded-xl smart-shadow airteltigo-border border-t-4 p-6 text-center flex flex-col hover:scale-105 transition duration-300 bg-white">
-                <div class="flex-grow">
-                    <h3 class="text-2xl font-extrabold text-blue-700 pb-2 mb-4">${plan.size}</h3>
-                    <p class="text-3xl font-extrabold text-gray-900 mb-1">GHS ${plan.price}</p>
-                    <p class="text-blue-700 font-bold mb-6">Non-Expiry</p>
-                </div>
-                <button class="airteltigo-btn w-full py-3 px-6 rounded-lg text-lg font-extrabold shadow transition duration-300 plan-buy-btn"
-                    data-network="AirtelTigo" data-size="${plan.size}" data-price="${plan.price}">Buy Now</button>
-            </div>
-            `;
+    // Render plan cards
+    function getPlanCard(plan, network) {
+        let buyClass = '';
+        let priceColor = '';
+        let deliveryText = 'Delivered shortly'; // Default text
+        if (network === 'mtn') {
+            buyClass = 'buy-mtn';
+            priceColor = 'text-yellow-500';
+        } else if (network === 'airteltigo') {
+            buyClass = 'buy-airteltigo';
+            priceColor = 'text-blue-700';
+        } else { // 'special' network
+            buyClass = 'buy-special';
+            priceColor = 'text-orange-600';
+            deliveryText = plan.note || "Delivered shortly"; // Use note if available
         }
+        return `
+        <div class="plan-card flex flex-col text-center items-center">
+            <div class="text-2xl md:text-3xl font-bold mb-1 uppercase">${plan.size}</div>
+            <div class="delivered-shortly mb-1">${deliveryText}</div>
+            <div class="font-extrabold text-2xl md:text-3xl mb-2 ${priceColor}">GHS ${plan.price}</div>
+            <button class="${buyClass} font-semibold rounded-lg px-5 py-2 mt-2 mb-1 w-full plan-buy-btn" 
+                data-network="${network === 'mtn' ? 'MTN' : network === 'airteltigo' ? 'AirtelTigo' : 'Special Offer'}"
+                data-size="${plan.size}" data-price="${plan.price}">
+                Buy Now
+            </button>
+        </div>
+        `;
     }
 
-    document.getElementById('mtn-plans-grid').innerHTML = mtnPlans.map(plan => createPlanCard(plan, 'mtn')).join('');
-    document.getElementById('airteltigo-plans-grid').innerHTML = airtelTigoPlans.map(plan => createPlanCard(plan, 'airteltigo')).join('');
+    function renderPlans() {
+        document.querySelector('#panel-mtn > div').innerHTML = mtnPlans.map(plan => getPlanCard(plan, 'mtn')).join('');
+        document.querySelector('#panel-airteltigo > div').innerHTML = airtelTigoPlans.map(plan => getPlanCard(plan, 'airteltigo')).join('');
+        document.querySelector('#panel-special > div').innerHTML = specialOffers.map(offer => getPlanCard(offer, 'special')).join('');
+    }
+    renderPlans();
 
-    // Mobile menu toggle logic with animation
+    // Tabs logic
+    function setTab(tab) {
+        ['mtn', 'airteltigo', 'special'].forEach(id => {
+            document.getElementById('panel-' + id).classList.toggle('hidden', id !== tab);
+            document.getElementById('tab-' + id).classList.remove('tab-btn-active-mtn', 'tab-btn-active-airteltigo', 'tab-btn-active-special');
+            document.getElementById('tab-' + id).classList.add('tab-btn-inactive');
+        });
+        document.getElementById('tab-' + tab).classList.remove('tab-btn-inactive');
+        if (tab === 'mtn') document.getElementById('tab-mtn').classList.add('tab-btn-active-mtn');
+        if (tab === 'airteltigo') document.getElementById('tab-airteltigo').classList.add('tab-btn-active-airteltigo');
+        if (tab === 'special') document.getElementById('tab-special').classList.add('tab-btn-active-special');
+    }
+    document.getElementById('tab-mtn').onclick = () => setTab('mtn');
+    document.getElementById('tab-airteltigo').onclick = () => setTab('airteltigo');
+    document.getElementById('tab-special').onclick = () => setTab('special');
+    setTab('mtn');
+
+    // Modal logic
+    function showConfirmationModal(network, size, price) {
+        document.getElementById('confirmation-modal').classList.remove('hidden');
+        document.getElementById('confirm-network').value = network;
+        document.getElementById('confirm-size').value = size;
+        document.getElementById('confirm-price').value = price;
+        document.getElementById('confirm-phone').value = '';
+        document.getElementById('confirm-phone-error').classList.add('hidden');
+        document.getElementById('selection-summary').innerHTML = `
+            <div class="text-2xl font-bold text-gray-800 mt-2 mb-1">${network} - ${size}</div>
+            <div class="text-gray-600 text-lg mb-4">
+                For: <span class="text-blue-700 font-semibold underline" id="confirm-phone-label">[Enter number]</span>
+            </div>
+            <div class="text-green-700 font-extrabold text-4xl mb-0">₵${price}</div>
+        `;
+    }
+    function hideConfirmationModal() {
+        document.getElementById('confirmation-modal').classList.add('hidden');
+    }
+    function attachBuyButtons() {
+        document.querySelectorAll('.plan-buy-btn').forEach(btn => {
+            btn.onclick = function() {
+                showConfirmationModal(this.dataset.network, this.dataset.size, this.dataset.price);
+            };
+        });
+    }
+    attachBuyButtons();
+    new MutationObserver(attachBuyButtons).observe(document.querySelector('#panel-mtn > div'), {childList:true});
+    new MutationObserver(attachBuyButtons).observe(document.querySelector('#panel-airteltigo > div'), {childList:true});
+    new MutationObserver(attachBuyButtons).observe(document.querySelector('#panel-special > div'), {childList:true});
+    document.getElementById('confirm-phone').addEventListener('input', function() {
+        document.getElementById('confirm-phone-label').textContent = this.value || '[Enter number]';
+    });
+    document.getElementById('back-btn').onclick = function() {
+        hideConfirmationModal();
+    };
+    document.getElementById('confirmation-modal').onclick = function(e) {
+        if (e.target === this) hideConfirmationModal();
+    };
+    document.getElementById('confirm-form').onsubmit = function(e) {
+        e.preventDefault();
+        const phone = document.getElementById('confirm-phone').value.trim();
+        if (!/^\d{10}$/.test(phone)) {
+            document.getElementById('confirm-phone-error').classList.remove('hidden');
+            return false;
+        }
+        document.getElementById('confirm-phone-error').classList.add('hidden');
+        window.open(paymentUrl, '_blank');
+        hideConfirmationModal();
+    };
+
+    // Animated mobile menu
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const hamburgerIcon = mobileMenuButton.querySelector('.hamburger');
@@ -464,62 +539,6 @@
     if (mobileMenu) {
         new MutationObserver(setupNavLinks).observe(mobileMenu, {childList:true, subtree:true});
     }
-    // Modal logic
-    function showConfirmationModal(network, size, price) {
-        document.getElementById('confirmation-modal').classList.remove('hidden');
-        document.getElementById('confirm-network').value = network;
-        document.getElementById('confirm-size').value = size;
-        document.getElementById('confirm-price').value = price;
-        document.getElementById('confirm-phone').value = '';
-        document.getElementById('confirm-phone-error').classList.add('hidden');
-        document.getElementById('selection-summary').innerHTML = `
-            <div class="text-2xl font-bold text-gray-800 mt-2 mb-1">${network} - ${size}</div>
-            <div class="text-gray-600 text-lg mb-4">
-                For: <span class="text-blue-700 font-semibold underline" id="confirm-phone-label">[Enter number]</span>
-            </div>
-            <div class="text-green-700 font-extrabold text-4xl mb-0">₵${price}</div>
-        `;
-    }
-    function hideConfirmationModal() {
-        document.getElementById('confirmation-modal').classList.add('hidden');
-    }
-    function attachBuyButtons() {
-        document.querySelectorAll('.plan-buy-btn').forEach(btn => {
-            btn.onclick = function() {
-                showConfirmationModal(this.dataset.network, this.dataset.size, this.dataset.price);
-            };
-        });
-        document.querySelectorAll('.special-buy-btn').forEach(btn => {
-            btn.onclick = function() {
-                showConfirmationModal(this.dataset.network, this.dataset.size, this.dataset.price);
-            };
-        });
-    }
-    attachBuyButtons();
-    new MutationObserver(attachBuyButtons).observe(document.getElementById('mtn-plans-grid'), {childList:true});
-    new MutationObserver(attachBuyButtons).observe(document.getElementById('airteltigo-plans-grid'), {childList:true});
-    document.getElementById('confirm-phone').addEventListener('input', function() {
-        document.getElementById('confirm-phone-label').textContent = this.value || '[Enter number]';
-    });
-    document.getElementById('back-btn').onclick = function() {
-        hideConfirmationModal();
-    };
-    document.getElementById('confirmation-modal').onclick = function(e) {
-        if (e.target === this) {
-            hideConfirmationModal();
-        }
-    };
-    document.getElementById('confirm-form').onsubmit = function(e) {
-        e.preventDefault();
-        const phone = document.getElementById('confirm-phone').value.trim();
-        if (!/^\d{10}$/.test(phone)) {
-            document.getElementById('confirm-phone-error').classList.remove('hidden');
-            return false;
-        }
-        document.getElementById('confirm-phone-error').classList.add('hidden');
-        window.open(paymentUrl, '_blank');
-        hideConfirmationModal();
-    };
     document.getElementById('year').textContent = new Date().getFullYear();
     lucide.createIcons();
 </script>
