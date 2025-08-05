@@ -88,30 +88,47 @@
             color: #202020;
         }
         .buy-mtn:hover {
-            background: #fff200;
-            color: #000;
-            border: 1.5px solid #ffe600;
+            background: #e6cf00;
         }
         .buy-airteltigo {
             background: #0E4D92;
             color: #fff;
         }
         .buy-airteltigo:hover {
-            background: #E30613;
-            color: #fff;
+            background: #0c427d;
         }
         .buy-special {
             background: #ffb703;
             color: #222;
         }
         .buy-special:hover {
-            background: #f59e00;
-            color: #fff;
+            background: #e6a503;
         }
         .delivered-shortly {
             color: #7b7b7b;
             font-weight: 500;
             font-size: 1rem;
+        }
+
+        /* New Modal Styles */
+        .modal-header-mtn { background-color: #ffe600; }
+        .modal-header-airteltigo { background-color: #0E4D92; }
+        .modal-header-special { background-color: #ffb703; }
+
+        .pay-btn-mtn { background-color: #ffe600; color: #202020; }
+        .pay-btn-mtn:hover { background-color: #e6cf00; }
+        .pay-btn-airteltigo { background-color: #0E4D92; color: #fff; }
+        .pay-btn-airteltigo:hover { background-color: #0c427d; }
+        .pay-btn-special { background-color: #ffb703; color: #222; }
+        .pay-btn-special:hover { background-color: #e6a503; }
+
+        .back-btn {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #374151; /* gray-700 */
+            transition: background-color 0.2s;
+        }
+        .back-btn:hover {
+            background-color: #d1d5db; /* gray-300 */
         }
     </style>
 </head>
@@ -167,7 +184,6 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center relative">
-            <!-- UPDATED: Added id="home-link" and cursor-pointer class -->
             <a href="#" id="home-link" class="text-xl font-extrabold brand-gradient-header tracking-wider uppercase cursor-pointer">NELSON BUSINESS HUB</a>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                 <i data-lucide="menu" class="w-7 h-7 hamburger"></i>
@@ -222,36 +238,36 @@
     </section>
 
     <!-- Confirmation Modal -->
-    <div id="confirmation-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-[110] hidden">
-        <div class="bg-white rounded-card shadow-lg max-w-md w-full mx-4 sm:mx-auto">
-            <div class="top-bar rounded-t-card px-6 py-4 text-center">
-                <h2 class="text-2xl font-bold text-white tracking-wide" style="font-family: 'Inter', sans-serif;">Complete Your Purchase</h2>
+    <div id="confirmation-modal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-[110] hidden p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full mx-auto overflow-hidden">
+            <div id="modal-header" class="px-6 py-4">
+                <h2 class="text-xl font-bold text-black tracking-wide text-center">Confirm Purchase</h2>
             </div>
-            <div class="px-8 pt-8 pb-6 text-center">
-                <div id="selection-summary"></div>
+            <div class="p-6 text-center">
+                <div id="selection-summary" class="mb-6"></div>
                 <form id="confirm-form">
                     <input type="hidden" id="confirm-network">
                     <input type="hidden" id="confirm-size">
                     <input type="hidden" id="confirm-price">
-                    <div class="mb-6">
-                        <label for="confirm-phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                        <input type="tel" id="confirm-phone" required maxlength="10"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg text-center text-lg focus:ring-blue-500 focus:border-blue-500 font-semibold" />
+                    <div class="mb-5">
+                        <label for="confirm-phone" class="block text-sm font-medium text-gray-700 mb-1 text-left">Enter Phone Number</label>
+                        <input type="tel" id="confirm-phone" required maxlength="10" placeholder="024xxxxxxx"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-center text-lg focus:ring-blue-500 focus:border-blue-500 font-semibold transition duration-200" />
                         <p id="confirm-phone-error" class="text-red-600 text-sm mt-1 hidden">Please enter a valid 10-digit number.</p>
                     </div>
-                    <div class="my-8">
-                        <button type="submit"
-                            class="pay-btn text-white font-semibold w-full py-3 rounded-lg text-lg flex items-center justify-center gap-2 transition duration-150 shadow hover:shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="1" y="5" width="22" height="14" rx="2" stroke-width="2"/><path d="M1 10h22" stroke-width="2"/><circle cx="7" cy="15" r="1.5" /></svg>
+                    <div class="space-y-3">
+                        <button type="submit" id="pay-btn"
+                            class="font-bold w-full py-3.5 rounded-xl text-lg flex items-center justify-center gap-2 transition duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
                             Pay Now
+                        </button>
+                        <button type="button" id="back-btn"
+                            class="back-btn w-full py-3 rounded-xl text-gray-700 font-semibold text-base flex items-center justify-center gap-2 transition duration-200">
+                            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                            Back to Plans
                         </button>
                     </div>
                 </form>
-                <button id="back-btn"
-                    class="back-btn w-full py-2 rounded-lg text-gray-700 font-semibold text-base flex items-center justify-center gap-2 transition duration-150 mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    Back
-                </button>
             </div>
         </div>
     </div>
@@ -361,12 +377,11 @@
         window.scrollTo(0,0);
     };
 
-    // UPDATED: Go back to welcome page when header logo is clicked
+    // Go back to welcome page when header logo is clicked
     document.getElementById('home-link').onclick = function(e) {
         e.preventDefault(); // Prevent default anchor behavior
         document.getElementById('main-content').classList.add('hidden');
         const welcomeHero = document.getElementById('welcome-hero');
-        // The welcome hero is a flex container, so we restore its display property to 'flex'
         welcomeHero.style.display = 'flex';
         window.scrollTo(0, 0);
     };
@@ -423,7 +438,7 @@
             <div class="delivered-shortly mb-1">${deliveryText}</div>
             <div class="font-extrabold text-2xl md:text-3xl mb-2 ${priceColor}">GHS ${plan.price}</div>
             <button class="${buyClass} font-semibold rounded-lg px-5 py-2 mt-2 mb-1 w-full plan-buy-btn" 
-                data-network="${network === 'mtn' ? 'MTN' : network === 'airteltigo' ? 'AirtelTigo' : 'Special Offer'}"
+                data-network="${network}"
                 data-size="${plan.size}" data-price="${plan.price}">
                 Buy Now
             </button>
@@ -457,23 +472,53 @@
 
     // Modal logic
     function showConfirmationModal(network, size, price) {
-        document.getElementById('confirmation-modal').classList.remove('hidden');
+        const modal = document.getElementById('confirmation-modal');
+        const modalHeader = document.getElementById('modal-header');
+        const payBtn = document.getElementById('pay-btn');
+
+        // Reset classes
+        modalHeader.className = 'px-6 py-4';
+        payBtn.className = 'font-bold w-full py-3.5 rounded-xl text-lg flex items-center justify-center gap-2 transition duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5';
+
+        // Set network-specific colors
+        let networkName = '';
+        if (network === 'mtn') {
+            modalHeader.classList.add('modal-header-mtn');
+            payBtn.classList.add('pay-btn-mtn');
+            networkName = 'MTN';
+        } else if (network === 'airteltigo') {
+            modalHeader.classList.add('modal-header-airteltigo');
+            payBtn.classList.add('pay-btn-airteltigo');
+            modalHeader.querySelector('h2').classList.add('text-white');
+            networkName = 'AirtelTigo';
+        } else { // special
+            modalHeader.classList.add('modal-header-special');
+            payBtn.classList.add('pay-btn-special');
+            networkName = 'Special Offer';
+        }
+
+        modal.classList.remove('hidden');
         document.getElementById('confirm-network').value = network;
         document.getElementById('confirm-size').value = size;
         document.getElementById('confirm-price').value = price;
         document.getElementById('confirm-phone').value = '';
         document.getElementById('confirm-phone-error').classList.add('hidden');
+        
         document.getElementById('selection-summary').innerHTML = `
-            <div class="text-2xl font-bold text-gray-800 mt-2 mb-1">${network} - ${size}</div>
-            <div class="text-gray-600 text-lg mb-4">
-                For: <span class="text-blue-700 font-semibold underline" id="confirm-phone-label">[Enter number]</span>
-            </div>
-            <div class="text-green-700 font-extrabold text-4xl mb-0">₵${price}</div>
+            <p class="text-gray-500 text-sm font-medium">You are buying</p>
+            <div class="text-2xl font-bold text-gray-900 mt-1">${networkName} - ${size}</div>
+            <div class="text-green-600 font-black text-5xl my-2">GHS ${price}</div>
         `;
+        // Re-run createIcons to render new icons in the modal
+        lucide.createIcons();
     }
+
     function hideConfirmationModal() {
         document.getElementById('confirmation-modal').classList.add('hidden');
+        // Clean up header text color if it was changed
+        document.querySelector('#modal-header h2').classList.remove('text-white');
     }
+
     function attachBuyButtons() {
         document.querySelectorAll('.plan-buy-btn').forEach(btn => {
             btn.onclick = function() {
@@ -482,18 +527,19 @@
         });
     }
     attachBuyButtons();
+
+    // Use MutationObserver to re-attach listeners if plans are re-rendered (though current setup doesn't require it)
     new MutationObserver(attachBuyButtons).observe(document.querySelector('#panel-mtn > div'), {childList:true});
     new MutationObserver(attachBuyButtons).observe(document.querySelector('#panel-airteltigo > div'), {childList:true});
     new MutationObserver(attachBuyButtons).observe(document.querySelector('#panel-special > div'), {childList:true});
-    document.getElementById('confirm-phone').addEventListener('input', function() {
-        document.getElementById('confirm-phone-label').textContent = this.value || '[Enter number]';
-    });
-    document.getElementById('back-btn').onclick = function() {
-        hideConfirmationModal();
-    };
+    
+    document.getElementById('back-btn').onclick = hideConfirmationModal;
+    
+    // Close modal if clicking on the background overlay
     document.getElementById('confirmation-modal').onclick = function(e) {
         if (e.target === this) hideConfirmationModal();
     };
+
     document.getElementById('confirm-form').onsubmit = function(e) {
         e.preventDefault();
         const phone = document.getElementById('confirm-phone').value.trim();
