@@ -164,10 +164,11 @@
 <!-- MAIN CONTENT (hidden on load) -->
 <div id="main-content" class="hidden">
 
-    <!-- Header (Home button removed as per instruction) -->
+    <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center relative">
-            <a href="#" class="text-xl font-extrabold brand-gradient-header tracking-wider uppercase">NELSON BUSINESS HUB</a>
+            <!-- UPDATED: Added id="home-link" and cursor-pointer class -->
+            <a href="#" id="home-link" class="text-xl font-extrabold brand-gradient-header tracking-wider uppercase cursor-pointer">NELSON BUSINESS HUB</a>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                 <i data-lucide="menu" class="w-7 h-7 hamburger"></i>
             </button>
@@ -358,6 +359,16 @@
         document.getElementById('welcome-hero').style.display = 'none';
         document.getElementById('main-content').classList.remove('hidden');
         window.scrollTo(0,0);
+    };
+
+    // UPDATED: Go back to welcome page when header logo is clicked
+    document.getElementById('home-link').onclick = function(e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        document.getElementById('main-content').classList.add('hidden');
+        const welcomeHero = document.getElementById('welcome-hero');
+        // The welcome hero is a flex container, so we restore its display property to 'flex'
+        welcomeHero.style.display = 'flex';
+        window.scrollTo(0, 0);
     };
 
     // Data for Plans
